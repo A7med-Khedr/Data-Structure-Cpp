@@ -46,7 +46,7 @@ public:
   void Insert_Node_At_End(double value)
   {                                   // Method To Add Element In End
     Node *New_Node = new Node(value); // Create New Node And Assign Value To Data
-    if (head == NULL)                 // Check Head Equal Null ? Mean Value Is First Element In List : There Is Many Element
+    if (head == nullptr)              // Check Head Equal Null ? Mean Value Is First Element In List : There Is Many Element
     {
       head = New_Node; // Assign Head Pointer To Reference The Data
       tail = New_Node; // And Assign Tail Pointer To Reference The Data
