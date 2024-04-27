@@ -46,7 +46,7 @@ public:
   { // Function To Remove Element In First
     if (IsEmpty())
     {
-      throw out_of_range("Queue Is Empty"); // Throw Massage Error ( Stack Is Empty )
+      throw out_of_range("Queue Is Empty"); // Throw Massage Error ( Queue Is Empty )
     }
     else
     {
