@@ -1,19 +1,19 @@
 #include <iostream>
-#include <cstdlib> // To Use malloc Function
 using namespace std;
 
-template <class T>
+template <class T> // To Create T Data Type
+// And Create List With Any Data Type But The Same List Contain The Same Data Type
 class Linked_List
 {
   class Node
   {
   public:
-    T data;
+    T data;     // Create Data For Node With T Data Type
     Node *next; // Pointer To Reference The Next Data In Linked List
-    Node(T data)
-    {
-      this->data = data;    // To Assign Value In Function To Data In Node
-      this->next = nullptr; // To Assign Next Data Equal null Always
+    Node(T data) : data(data), next(nullptr)
+    { // Constructor To Initialization Data Similar To This But Is Faster
+      // this->data = data;    // To Assign Value In Function To Data In Node
+      // this->next = nullptr; // To Assign Next Data Equal null Always
     }
   };
 
@@ -190,21 +190,22 @@ public:
   // ===================================================
 };
 
-template <class D>
+template <class D> // To Create D Data Type
+// And Create List With Any Data Type But The Same List Contain The Same Data Type
 class Double_Linked_List
 {
   class Double_Node
   {
   public:
-    D data;            // Data Initial By User
+    D data;            // Data Initial By User With D Data Type
     Double_Node *next; // Pointer To Reference Next Node
     Double_Node *prev; // Pointer To Reference Pervious Node
 
-    Double_Node(D value)
-    {                       // Constructor To Assign Value In Function  For Data In Double_Node
-      this->data = value;   // Assign Value In Function For Data In Class
-      this->next = nullptr; // Assign First Value Is nullptr
-      this->prev = nullptr; // Assign First Value Is nullptr
+    Double_Node(D data) : data(data), next(nullptr), prev(nullptr)
+    { // Constructor To Assign Value In Function  For Data In Double_Node Equal This But Last Is Faster
+      // this->data = value;   // Assign Value In Function For Data In Class
+      // this->next = nullptr; // Assign First Value Is nullptr
+      // this->prev = nullptr; // Assign First Value Is nullptr
     }
   };
 
@@ -219,7 +220,7 @@ private:
   }
 
 public:
-  void Insert_Node_At_Beginning(D value) // Function To Add Data In First
+  void Insert_Node_At_Beginning(D value) // Function To Add Element In First
   {
     Double_Node *New_Node = new Double_Node(value); // Create New Node And Assign Value For Data
     if (head == nullptr)                            // Check If List Empty Or No
@@ -253,6 +254,55 @@ public:
       tail->next = New_Node; // After Last Element ( Tail Refer It ) Equal New Node
       New_Node->prev = tail; // Pointer Before New Node Refer To Tail
       tail = New_Node;       // Tail Move To New Node Because New Node Is Last Element
+    }
+  }
+
+  // ====================================
+
+  void Insert_At_Position(D value, int pos)
+  { // Function To INsert Node In Any Place In Double Linked List
+    if (pos < 0)
+    { // If User Input Number Less 0 print This
+      cout << "Invalid Position\n";
+      return;
+    }
+
+    if (pos == 0, head == nullptr)
+    {                                  // If We Need Add Element In First
+      Insert_Node_At_Beginning(value); // Call This Function And Get Value As A Parameter
+      return;
+    }
+
+    Double_Node *New_Node = new Double_Node(value); // Create New Node And Assign Value To Data In Class
+    Double_Node *current = head;                    // Create Current Pointer To Loop In Linked List
+    int current_position = 0;                       // Use This To Check Current Pointer Not Exceeds Specific Position
+
+    while (current->next != nullptr && current_position < pos - 1)
+    {                          // Check Current Not Arrive Last Element And current_position Is Valid
+      current = current->next; // Increment Loop
+      current_position++;      // Increment current_position Plus 1 Each Loop Is True
+    }
+
+    if (current->next == nullptr && current_position < pos - 1)
+    { // If Input By User Exceed Length For Double Linked List Print This
+      cout << "Position: " << pos << " Exceeds The Size Of The Linked List\n";
+      cout << "Size of Linked List Is: " << this->Get_Length() << "\n";
+      delete New_Node; // And Delete New Node To Free Memory
+      return;
+    }
+
+    New_Node->next = current->next; // Next Pointer To New Node Refer To Next To Current
+    New_Node->prev = current;       // Perv Pointer To New  NOde Refer To Current Because Current Element Before New Node
+    current->next = New_Node;       // Next Pointer To current Assign to New Node
+
+    if (New_Node->next == nullptr)
+    {                  // Check If Insert Element In Tail
+      tail = New_Node; // Update Tail Pointer To New NOde
+    }
+    else
+    {
+      New_Node->next->prev = New_Node; // Element After New Node Prev Pointer Have It Pointer To New Node
+      // Because To New Node Is Element Before This
     }
   }
 
@@ -387,7 +437,7 @@ int main()
   cout << "Length: " << My_List.Get_Length() << "\n";
   cout << "===================\n";
 
-  // My_List.Print_List();
+  My_List.Print_List();
   cout << "===================\n";
 
   Double_Linked_List<int> New_List;
@@ -396,6 +446,7 @@ int main()
   New_List.Insert_Node_At_Beginning(2);
   New_List.Insert_Node_At_Beginning(1);
   New_List.Insert_Node_At_End(4);
+  New_List.Insert_At_Position(5, 4);
 
   New_List.Print_List();
   cout << "Length: " << New_List.Get_Length() << "\n";
