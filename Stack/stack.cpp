@@ -1,5 +1,6 @@
-#ifndef STACK_CPP // any name as you like ( help compiler to provide include this file )
-#define STACK_CPP // and defined it
+// stack => LIFO ( Last In First Out )
+#ifndef _STACK_CPP // any name as you like ( help compiler to provide include this file )
+#define _STACK_CPP // and defined it
 #include "./stack.h" // and incluse header file for stack to implement stack operations
 #include <iostream>
 using namespace std;
@@ -10,7 +11,7 @@ Stack<T>::Stack() : top(nullptr), size(0) {} // constructor to initialize stack 
 template <typename T> // template for generic data type
 Stack<T>::~Stack() // and destructor to free memory when stack is destroyed
 { // when we call pop function we call destructor to free memory
-    while (!isEmpty())
+    while (!IsEmpty())
     {
         pop();
     }
@@ -26,9 +27,9 @@ void Stack<T>::Push(const T &value)
 }
 
 template <typename T>
-T Stack<T>::pop()
+T Stack<T>::Pop()
 {
-    if (isEmpty()) // check when we call it stack is empty or not
+    if (IsEmpty()) // check when we call it stack is empty or not
     {
         throw std::out_of_range("Stack Is Empty"); // if empty we call this exception
     }
@@ -41,15 +42,15 @@ T Stack<T>::pop()
 }
 
 template <typename T>
-bool Stack<T>::isEmpty() const
+bool Stack<T>::IsEmpty() const
 {
     return top == nullptr; // check if stack is empty or not
 }
 
 template <typename T>
-void Stack<T>::Display() const
+void Stack<T>::PrintStack() const
 {
-    if (isEmpty()) // check if stack is empty or not
+    if (IsEmpty()) // check if stack is empty or not
     {
         cout << "Stack Is Empty\n"; // if empty print this message
         return;
@@ -65,9 +66,9 @@ void Stack<T>::Display() const
 }
 
 template <typename T>
-T Stack<T>::isTop() const
+T Stack<T>::IsTop() const
 {
-    if (isEmpty()) { // check if stack is empty or not
+    if (IsEmpty()) { // check if stack is empty or not
         cout << "Stack Is Empty\n"; // if empty print this message
     }
     else {
@@ -77,7 +78,7 @@ T Stack<T>::isTop() const
 }
 
 template <typename T>
-int Stack<T>::Get_Size() const
+int Stack<T>::GetLength() const
 {
     return size; // return size of stack
 }

@@ -1,24 +1,24 @@
 #include <iostream>
-using namespace std;
 #include "stack.h"
+using namespace std;
 
 int main()
 {
-    Stack<int> My_Stack;
-    My_Stack.Push(1);
-    My_Stack.Push(2);
-    My_Stack.Push(3);
-    My_Stack.Push(4);
+    Stack<int> stack;
+    stack.Push(1);
+    stack.Push(2);
+    stack.Push(3);
+    stack.Push(4);
     
-    My_Stack.pop();
-    My_Stack.pop();
-    My_Stack.pop();
+    stack.Pop();
+    stack.Pop();
+    stack.Pop();
     
-    My_Stack.Display();
+    stack.PrintStack();
     
-    My_Stack.Print_Top();
+    stack.IsTop();
     
-    cout << "Stack Size: " << My_Stack.Get_Size() << "\n";
+    cout << "Stack Size: " << stack.GetLength() << "\n";
     
     return 0;
 }

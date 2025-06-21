@@ -1,5 +1,5 @@
-#ifndef DOUBLE_LINKED_LIST_H
-#define DOUBLE_LINKED_LIST_H
+#ifndef _DOUBLE_LINKED_LIST_H
+#define _DOUBLE_LINKED_LIST_H
 #include <iostream>
 using namespace std;
 
@@ -23,13 +23,13 @@ private:
     // ==========================
 
 public:
-	bool isEmpty(); // Check List Empty Or No We Need It In Print Function
-	void Insert_Node_At_Beginning(T value); // Function To Add Element In First
-	void Insert_Node_At_End(T value); // Function To Add Data In Last
-	void Insert_At_Position(T value, int pos); // Function To INsert Node In Any Place In Double Linked List
-	void Remove_Node(T value); // Function To Remove Node
-	void Print_List(); // Method To Print Linked List
-	int Get_Length(); // Function To Get Length Of List
+	bool IS_EMPTY(); // Check List Empty Or No We Need It In Print Function
+	void INSERT_NODE_AT_BEGINNING(T value); // Function To Add Element In First
+	void INSERT_NODE_AT_END(T value); // Function To Add Data In Last
+	void INSERT_NODE_AT_POSITION(T value, int pos); // Function To INsert Node In Any Place In Double Linked List
+	void REMOVE_NODE(T value); // Function To Remove Node
+	void PRINT_LINKED_LIST(); // Method To Print Linked List
+	int GET_LENGTH(); // Function To Get Length Of List
 };
 
 #include "Double_Linked_List.cpp"

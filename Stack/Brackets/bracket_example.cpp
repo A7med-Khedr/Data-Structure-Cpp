@@ -11,11 +11,11 @@ bool isBalance(const string& str) {
             stackBrackets.Push(ch);
         }
         else if (ch == ')' || ch == '}' || ch == ']') {
-            if (stackBrackets.isEmpty()) {
+            if (stackBrackets.IsEmpty()) {
                 return false;
             }
 
-            char isSimilar = stackBrackets.pop();
+            char isSimilar = stackBrackets.Pop();
 
             if ((ch == ')' && isSimilar != '(') ||
                 (ch == '}' && isSimilar != '{') ||
@@ -25,7 +25,7 @@ bool isBalance(const string& str) {
         }
     }
 
-    return stackBrackets.isEmpty();
+    return stackBrackets.IsEmpty();
 }
 
 

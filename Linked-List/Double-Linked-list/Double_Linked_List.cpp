@@ -1,16 +1,16 @@
-#ifndef DOUBLE_LINKED_LIST_CPP
-#define DOUBLE_LINKED_LIST_CPP
+#ifndef _DOUBLE_LINKED_LIST_CPP
+#define _DOUBLE_LINKED_LIST_CPP
 
 #include "Double_Linked_List.h"
 
 template <typename T>
-bool Double_Linked_List<T>::isEmpty()
+bool Double_Linked_List<T>::IS_EMPTY()
 {
     return head == nullptr; // This Line => head == nullptr ? True ( 1 ) : False ( 0 )
 }
 
 template <typename T>
-void Double_Linked_List<T>::Insert_Node_At_Beginning(T value)
+void Double_Linked_List<T>::INSERT_NODE_AT_BEGINNING(T value)
 {
     Node *New_Node = new Node(value); // Create New Node And Assign Value For Data
     if (head == nullptr)                            // Check If List Empty Or No
@@ -28,7 +28,7 @@ void Double_Linked_List<T>::Insert_Node_At_Beginning(T value)
 }
 
 template <typename T>
-void Double_Linked_List<T>::Insert_Node_At_End(T value)
+void Double_Linked_List<T>::INSERT_NODE_AT_END(T value)
 {                                                   
     Node *New_Node = new Node(value); // Create New Node And Assign Value For Data
     if (this->head == nullptr)                      // Check If List Empty Or No
@@ -47,7 +47,7 @@ void Double_Linked_List<T>::Insert_Node_At_End(T value)
 }
 
 template <typename T>
-void Double_Linked_List<T>::Insert_At_Position(T value, int pos)
+void Double_Linked_List<T>::INSERT_NODE_AT_POSITION(T value, int pos)
 { 
     if (pos < 0)
     { // If User Input Number Less 0 print This
@@ -95,7 +95,7 @@ void Double_Linked_List<T>::Insert_At_Position(T value, int pos)
 }
 
 template <typename T>
-void Double_Linked_List<T>::Remove_Node(T value)
+void Double_Linked_List<T>::REMOVE_NODE(T value)
 {                        
     if (head == nullptr) // Check If List Is Empty Or No
     {
@@ -161,7 +161,7 @@ void Double_Linked_List<T>::Remove_Node(T value)
 }
 
 template <typename T>
-void Double_Linked_List<T>::Print_List()
+void Double_Linked_List<T>::PRINT_LINKED_LIST()
 {
     if (this->isEmpty()) // Check List Is Empty Or No
     {
@@ -179,7 +179,7 @@ void Double_Linked_List<T>::Print_List()
 }
 
 template <typename T>
-int Double_Linked_List<T>::Get_Length()
+int Double_Linked_List<T>::GET_LENGTH()
 {
     Node *current = head; // Create Node To Move In List
     int count = 0;               // Create Counter To Get Final Length

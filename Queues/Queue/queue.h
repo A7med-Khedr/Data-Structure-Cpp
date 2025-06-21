@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef _QUEUE_H
+#define _QUEUE_H
 
 template <typename T>
 class Queue
@@ -23,9 +23,13 @@ public:
 	bool IsEmpty();
 	void EnQueue(T value); // method to add element in queue
 	T DeQueue(); // method to remove element from queue
-	void Print(); // method to print all elements in queue
+	void PrintQueue(); // method to print all elements in queue
 	int GetLength(); // method to get the length of queue
-
+    T Front(); // to get first element in queue
+    T Back(); // to get last element in queue
+    bool Contains(T value); // to search for specific element in queue
+    void Reverse(); //  method to reverse the queue
+    void Clear(); // method to clear the queue
 };
 
 #include "Queue.cpp"

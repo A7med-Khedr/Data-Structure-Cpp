@@ -1,5 +1,5 @@
-#ifndef STACK_H // any name as you like ( help compiler to provide include this file )
-#define STACK_H // and defined it
+#ifndef _STACK_H // any name as you like ( help compiler to provide include this file )
+#define _STACK_H // and defined it
 
 // #pragma once // can we use this statement if we do'nt want to use first defined
 // but it not recommended to use it in header file because it not supported in all compiler
@@ -30,11 +30,11 @@ public:
     ~Stack(); // destructor to free memory in stack
 
     void Push(const T &value); // push function in stack to push element is top of stack
-    T pop(); // and pop function to remove element from top of stack
-    bool isEmpty() const; // return boolean value to check if stack is empty or not
-    void Display() const; // to print stack
-    T isTop() const; // to get top element in stack
-    int Get_Size() const; // to get size of stack
+    T Pop(); // and pop function to remove element from top of stack
+    bool IsEmpty() const; // return boolean value to check if stack is empty or not
+    void PrintStack() const; // to print stack
+    T IsTop() const; // to get top element in stack
+    int GetLength() const; // to get size of stack
 };
 
 #include "stack.cpp" // this line to include stack.cpp file because we define template data type in stack.cpp file

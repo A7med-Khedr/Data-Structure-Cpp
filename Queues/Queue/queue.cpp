@@ -1,3 +1,6 @@
+// queue => FIFO ( First In First Out )
+#ifndef _QUEUE_CPP
+#define _QUEUE_CPP
 #include <stdexcept> // Library In C++ Allow Me Print Massage As Error
 #include "./Queue.h"
 
@@ -8,7 +11,7 @@ bool Queue<T>::IsEmpty()
 }
 
 template <typename T>
-void Queue<T>::EnQueue(T value)
+void Queue<T>::EnQueue (T value)
 {
     Node *New_Node = new Node(value); // Create New Node And Assign Value To Data In Class
     if (tail == nullptr)
@@ -44,7 +47,7 @@ T Queue<T>::DeQueue()
 }
 
 template <typename T>
-void Queue<T>::Print()
+void Queue<T>::PrintQueue()
 {
     if (IsEmpty())
     {                               // Check If Queue Is Empty Or No
@@ -60,9 +63,65 @@ void Queue<T>::Print()
         }
     }
 }
-template <typename T>
 
+template <typename T>
 int Queue<T>::GetLength()
 {
     return count; // Return Final Count
 }
+
+template <typename T>
+T Queue<T>::Front()
+{
+    if (IsEmpty()) // if Queue Is Empty
+        throw std::out_of_range("Queue is empty"); // Throw Massage Error ( Queue Is Empty )
+    return head->data; // if not empty Return First Element
+}
+
+template <typename T>
+T Queue<T>::Back()
+{
+    if (IsEmpty()) // if Queue Is Empty
+        throw std::out_of_range("Queue is empty"); // Throw Massage Error ( Queue Is Empty )
+    return tail->data; // if not empty Return Last Element
+}
+
+template <typename T>
+bool Queue<T>::Contains(T value)
+{
+    Node* current = head; // Create Current Pointer To Move In Queue
+    while (current != nullptr) // Until Arrive Last Element
+    {
+        if (current->data == value) // Check If Current Element Is Equal To Value
+            return true; // Return True If Found
+        current = current->next; // Increment loop
+    }
+    return false; // Return False If Not Found
+}
+
+template <typename T>
+void Queue<T>::Reverse()
+{
+    Node* prev = nullptr; // Create Previous Pointer
+    Node* current = head; // Create Current Pointer To Move In Queue
+    tail = (head == nullptr) ? nullptr : tail; // Set Tail To Null If Queue Is Empty
+
+    while (current != nullptr)
+    {
+        Node* next = current->next; // Create Next Pointer To Move In Queue
+        current->next = prev; // Reverse Link
+        prev = current; // Move Previous Pointer
+        current = next; // Move Current Pointer
+    }
+
+    head = prev; // Set Head To New First Element
+}
+
+template <typename T>
+void Queue<T>::Clear()
+{
+    while (!IsEmpty()) // While Queue Is Not Empty
+        DeQueue(); // Remove Elements
+}
+
+#endif

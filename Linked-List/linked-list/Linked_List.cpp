@@ -1,5 +1,5 @@
-#ifndef LINKED_LIST_CPP // any name as you like ( help compiler to provide include this file )
-#define LINKED_LIST_CPP // and defined it
+#ifndef _LINKED_LIST_CPP // any name as you like ( help compiler to provide include this file )
+#define _LINKED_LIST_CPP // and defined it
 
 #include "./linked_list.h" // and incluse header file for linked list to implement list operations
 
@@ -8,13 +8,13 @@ template <typename T> // To Create T Data Type
 Linked_List<T>::Linked_List() : head(nullptr), tail(nullptr) {} // Constructor
 
 template <typename T>
-bool Linked_List<T>::isEmpty() const
+bool Linked_List<T>::IS_EMPTY() const
 {
     return head == nullptr;
 }
 
 template <typename T> // To Create T Data Type
-void Linked_List<T>::insertNodeAtBeginning(T value)
+void Linked_List<T>::INSERT_NODE_AT_BEGINNING(T value)
 {
     Node *New_Node = new Node(value); // Create New Node And Assign Value To Data
     if (head == nullptr)              // Check Head Equal Null ? Mean Value Is First Element In List : There Is Many Element
@@ -32,7 +32,7 @@ void Linked_List<T>::insertNodeAtBeginning(T value)
 }
 
 template <typename T>
-void Linked_List<T>::insertNodeAtEnd(T value)
+void Linked_List<T>::INSERT_NODE_AT_END(T value)
 {
     Node *New_Node = new Node(value); // Create New Node And Assign Value To Data
     if (head == nullptr)              // Check Head Equal Null ? Mean Value Is First Element In List : There Is Many Element
@@ -50,7 +50,7 @@ void Linked_List<T>::insertNodeAtEnd(T value)
 }
 
 template <typename T>
-void Linked_List<T>::insertAtPosition(T value, int pos) 
+void Linked_List<T>::INSERT_NODE_AT_POSITION(T value, int pos) 
     { // Function To Insert Node In Any Position In Linked List
         if (pos < 0)
         { // If User Input Number Less 0 print This
@@ -59,7 +59,7 @@ void Linked_List<T>::insertAtPosition(T value, int pos)
 
         if (pos == 0 || head == nullptr)
         {                                    // Check If You Need Add Element At Beginning Linked List
-            insertNodeAtBeginning(value); // Call This Function And Get Value As A Parameter
+            INSERT_NODE_AT_BEGINNING(value); // Call This Function And Get Value As A Parameter
             return;
         }
 
@@ -91,7 +91,7 @@ void Linked_List<T>::insertAtPosition(T value, int pos)
     }
 
 template <typename T>
-void Linked_List<T>::removeNode(T value)
+void Linked_List<T>::REMOVE_NODE(T value)
 {
     if (head == nullptr) // Check List Is Empty Or No
     {
@@ -139,7 +139,7 @@ void Linked_List<T>::removeNode(T value)
 }
 
 template <typename T>
-void Linked_List<T>::printList()
+void Linked_List<T>::PRINT_LINKED_LIST()
 {
     if (this->isEmpty()) // Check List Is Empty Or No
     {
@@ -157,7 +157,7 @@ void Linked_List<T>::printList()
 }
 
 template <typename T>
-int Linked_List<T>::getLength()
+int Linked_List<T>::GET_LENGTH()
 {
     Node *current = head;      // Create Node To Move In List
     int count = 0;             // Create Counter To Get Final Length
@@ -170,7 +170,7 @@ int Linked_List<T>::getLength()
 }
 
 template <typename T>
-T Linked_List<T>::middleElement()
+T Linked_List<T>::MIDDEL_ELEMENT()
 {
     Node *slow = head; // Create Slow Pointer In Head To Move one Step
     Node *fast = head; // Create Fast Pointer In Head To Move Two Step
