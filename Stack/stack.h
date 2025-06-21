@@ -5,6 +5,7 @@
 // but it not recommended to use it in header file because it not supported in all compiler
 
 #include <stdexcept> // library in cpp to throw exception
+#include <iostream>
 using namespace std;
 
 template <typename T> // allow me to make stack with any type of data
@@ -32,7 +33,7 @@ public:
     T pop(); // and pop function to remove element from top of stack
     bool isEmpty() const; // return boolean value to check if stack is empty or not
     void Display() const; // to print stack
-    void Print_Top() const; // to get top element in stack
+    T isTop() const; // to get top element in stack
     int Get_Size() const; // to get size of stack
 };
 

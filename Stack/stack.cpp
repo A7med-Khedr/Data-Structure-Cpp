@@ -1,6 +1,8 @@
 #ifndef STACK_CPP // any name as you like ( help compiler to provide include this file )
 #define STACK_CPP // and defined it
 #include "./stack.h" // and incluse header file for stack to implement stack operations
+#include <iostream>
+using namespace std;
 
 template <typename T> // template for generic data type
 Stack<T>::Stack() : top(nullptr), size(0) {} // constructor to initialize stack with empty stack
@@ -63,16 +65,15 @@ void Stack<T>::Display() const
 }
 
 template <typename T>
-void Stack<T>::Print_Top() const
+T Stack<T>::isTop() const
 {
-    if (isEmpty()) // check if stack is empty or not
-    {
+    if (isEmpty()) { // check if stack is empty or not
         cout << "Stack Is Empty\n"; // if empty print this message
     }
-    else
-    {
+    else {
         cout << "Top Element: " << top->data << "\n"; // if not we print top element
     }
+    return top->data;
 }
 
 template <typename T>
