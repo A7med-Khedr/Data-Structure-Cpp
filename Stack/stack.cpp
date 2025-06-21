@@ -1,7 +1,6 @@
 #ifndef STACK_CPP // any name as you like ( help compiler to provide include this file )
 #define STACK_CPP // and defined it
 #include "./stack.h" // and incluse header file for stack to implement stack operations
-#include <iostream>
 
 template <typename T> // template for generic data type
 Stack<T>::Stack() : top(nullptr), size(0) {} // constructor to initialize stack with empty stack

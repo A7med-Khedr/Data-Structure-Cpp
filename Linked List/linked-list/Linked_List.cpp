@@ -2,7 +2,6 @@
 #define LINKED_LIST_CPP // and defined it
 
 #include "./linked_list.h" // and incluse header file for linked list to implement list operations
-#include <iostream>
 
 template <typename T> // To Create T Data Type
 // And Create List With Any Data Type But The Same List Contain The Same Data Type
