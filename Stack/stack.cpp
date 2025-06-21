@@ -13,7 +13,7 @@ Stack<T>::~Stack() // and destructor to free memory when stack is destroyed
 { // when we call pop function we call destructor to free memory
     while (!IsEmpty())
     {
-        pop();
+        Pop();
     }
 }
 

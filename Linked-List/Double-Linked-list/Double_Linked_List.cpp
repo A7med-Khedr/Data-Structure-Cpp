@@ -57,7 +57,7 @@ void Double_Linked_List<T>::INSERT_NODE_AT_POSITION(T value, int pos)
 
     if (pos == 0 || head == nullptr)
     {                                    // If We Need Add Element In First
-        Insert_Node_At_Beginning(value); // Call This Function And Get Value As A Parameter
+        INSERT_NODE_AT_BEGINNING(value); // Call This Function And Get Value As A Parameter
         return;
     }
 
@@ -74,7 +74,7 @@ void Double_Linked_List<T>::INSERT_NODE_AT_POSITION(T value, int pos)
     if (current->next == nullptr && current_position < pos - 1)
     { // If Input By User Exceed Length For Double Linked List Print This
         cout << "Position: " << pos << " Exceeds The Size Of The Linked List\n";
-        cout << "Size of Linked List Is: " << this->Get_Length() << "\n";
+        cout << "Size of Linked List Is: " << this->GET_LENGTH() << "\n";
         delete New_Node; // And Delete New Node To Free Memory
         return;
     }
@@ -163,7 +163,7 @@ void Double_Linked_List<T>::REMOVE_NODE(T value)
 template <typename T>
 void Double_Linked_List<T>::PRINT_LINKED_LIST()
 {
-    if (this->isEmpty()) // Check List Is Empty Or No
+    if (this->IS_EMPTY()) // Check List Is Empty Or No
     {
         cout << "Linked List Is Empty\n"; // If Yes Print This
     }
