@@ -37,6 +37,6 @@ public:
     T MIDDEL_ELEMENT(); // to get middle element of linked list
 };
 
-#include "linked_list.cpp" // when we use template data type we need to incluse this file to compile it here
+#include "Linked_List.cpp" // when we use template data type we need to incluse this file to compile it here
 
 #endif // end of LINKED_LIST_H

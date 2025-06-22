@@ -76,7 +76,7 @@ void Linked_List<T>::INSERT_NODE_AT_POSITION(T value, int pos)
         if (current->next == nullptr && current_position < pos - 1)
         { // If Input By User Exceed Length For Linked List Print This
             cout << "Position: " << pos << " Exceeds The Size Of The Linked List\n";
-            cout << "Size of Linked List Is: " << this->getLength() << "\n";
+            cout << "Size of Linked List Is: " << this->GET_LENGTH() << "\n";
             delete New_Node; // Delete New Node To Free Memory
             return;
         }
@@ -141,7 +141,7 @@ void Linked_List<T>::REMOVE_NODE(T value)
 template <typename T>
 void Linked_List<T>::PRINT_LINKED_LIST()
 {
-    if (this->isEmpty()) // Check List Is Empty Or No
+    if (this->IS_EMPTY()) // Check List Is Empty Or No
     {
         cout << "Linked List Is Empty\n"; // If Yes Print This
     }
