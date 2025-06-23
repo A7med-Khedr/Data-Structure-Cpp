@@ -32,6 +32,6 @@ public:
     void Clear(); // method to clear the queue
 };
 
-#include "queue.cpp"
+#include "queue.tpp"
 
 #endif

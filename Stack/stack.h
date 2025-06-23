@@ -27,16 +27,17 @@ private:
 
 public:
     Stack(); // constructor to initialize stack
+    Stack(const Stack& other);
     ~Stack(); // destructor to free memory in stack
 
     void Push(const T &value); // push function in stack to push element is top of stack
     T Pop(); // and pop function to remove element from top of stack
     bool IsEmpty() const; // return boolean value to check if stack is empty or not
     void PrintStack() const; // to print stack
-    T IsTop() const; // to get top element in stack
+    T Top() const; // to get top element in stack
     int GetLength() const; // to get size of stack
 };
 
-#include "stack.cpp" // this line to include stack.cpp file because we define template data type in stack.cpp file
+#include "stack.tpp" // this line to include stack.cpp file because we define template data type in stack.cpp file
 
 #endif // end of STACK_H

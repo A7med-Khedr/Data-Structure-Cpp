@@ -16,7 +16,7 @@ int main()
     
     stack.PrintStack();
     
-    stack.IsTop();
+    stack.Top();
     
     cout << "Stack Size: " << stack.GetLength() << "\n";
     

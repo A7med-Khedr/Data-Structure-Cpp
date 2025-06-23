@@ -32,6 +32,6 @@ public:
 	int GET_LENGTH(); // Function To Get Length Of List
 };
 
-#include "Double_Linked_List.cpp"
+#include "Double_Linked_List.tpp"
 
 #endif

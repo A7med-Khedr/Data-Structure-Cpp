@@ -8,6 +8,23 @@ using namespace std;
 template <typename T> // template for generic data type
 Stack<T>::Stack() : top(nullptr), size(0) {} // constructor to initialize stack with empty stack
 
+template <typename T>
+Stack<T>::Stack(const Stack<T>& other) : top(nullptr), size(0) {
+    if (other.top == nullptr) return;
+
+    Node* current = other.top;
+    Stack<T> temp;
+
+    while (current != nullptr) {
+        temp.Push(current->data);
+        current = current->next;
+    }
+
+    while (!temp.IsEmpty()) {
+        this->Push(temp.Pop());
+    }
+}
+
 template <typename T> // template for generic data type
 Stack<T>::~Stack() // and destructor to free memory when stack is destroyed
 { // when we call pop function we call destructor to free memory
@@ -15,6 +32,12 @@ Stack<T>::~Stack() // and destructor to free memory when stack is destroyed
     {
         Pop();
     }
+}
+
+template <typename T>
+bool Stack<T>::IsEmpty() const
+{
+    return top == nullptr; // check if stack is empty or not
 }
 
 template <typename T> // template for generic data type
@@ -33,18 +56,12 @@ T Stack<T>::Pop()
     {
         throw std::out_of_range("Stack Is Empty"); // if empty we call this exception
     }
-    T data = top->data; // store data we deleted in data variable
     Node *temp = top; // and store top in temp variable
+    T data = top->data; // store data we deleted in data variable
     top = top->next; // and move top one step forward
     delete temp; // delete temp node
     size--; // and decrement size by 1
     return data; // return data we deleted
-}
-
-template <typename T>
-bool Stack<T>::IsEmpty() const
-{
-    return top == nullptr; // check if stack is empty or not
 }
 
 template <typename T>
@@ -66,13 +83,10 @@ void Stack<T>::PrintStack() const
 }
 
 template <typename T>
-T Stack<T>::IsTop() const
+T Stack<T>::Top() const
 {
-    if (IsEmpty()) { // check if stack is empty or not
-        cout << "Stack Is Empty\n"; // if empty print this message
-    }
-    else {
-        cout << "Top Element: " << top->data << "\n"; // if not we print top element
+    if (IsEmpty()) {
+        throw std::out_of_range("Stack is empty");
     }
     return top->data;
 }
